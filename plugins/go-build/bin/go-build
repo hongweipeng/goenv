@@ -537,7 +537,7 @@ fetch_tarball() {
 
   if ! reuse_existing_tarball "$package_filename" "$checksum"; then
     local tarball_filename=$(basename $package_url)
-    echo "Downloading ${tarball_filename}..." >&2
+    echo "Downloading -> ${tarball_filename}..." >&2
     http head "$mirror_url" &&
       download_tarball "$mirror_url" "$package_filename" "$checksum" ||
       download_tarball "$package_url" "$package_filename" "$checksum"
